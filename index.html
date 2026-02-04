@@ -419,6 +419,24 @@
                     <div class="summary-value balance-positive" id="summary-balance">€ 0,00</div>
                 </div>
             </div>
+            <!-- OBIETTIVO DEL MESE -->
+<div class="section" style="margin-top: 10px;">
+    <h2>🎯 Obiettivo del mese</h2>
+    <div style="margin-bottom: 10px; font-size: 0.9em; color: #555;">
+        Obiettivo risparmio: 
+        <input id="monthly-goal-input" type="number" value="300" min="0" step="10"
+               style="width: 90px; padding:4px 6px; border-radius:6px; border:1px solid #ccc; text-align:right;"
+               onchange="updateGoalBar(); saveMonthData()" oninput="updateGoalBar()">
+        €
+    </div>
+    <div style="width:100%; height:16px; background:#eee; border-radius:8px; overflow:hidden;">
+        <div id="goal-progress-bar" style="height:100%; width:0%; background:#4CAF50;"></div>
+    </div>
+    <div id="goal-progress-text" style="margin-top:6px; font-size:0.85em; color:#333;">
+        Mancano € 300,00 per l’obiettivo.
+    </div>
+</div>
+
 
             <!-- LISTA DELLA SPESA SETTIMANALE -->
             <div class="section" style="border-left-color: #FF9800;">
