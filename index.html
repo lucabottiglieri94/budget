@@ -260,7 +260,6 @@
         window.getDoc = getDoc;
         window.setDoc = setDoc;
 
-        // Inizializza app
         initApp();
     </script>
 
@@ -286,7 +285,6 @@
                 if (docSnap.exists()) {
                     data = docSnap.data();
                 } else {
-                    // Dati default
                     data = {
                         entrate: [
                             {label: 'Stipendio Luca', amount: 1460},
@@ -319,9 +317,9 @@
             try {
                 const docRef = window.doc(window.db, "budgets", currentMonth);
                 await window.setDoc(docRef, data);
-                console.log("Dati salvati con successo!");
+                console.log("✅ Salvato su Firebase!");
             } catch (error) {
-                console.error("Errore salvataggio:", error);
+                console.error("❌ Errore salvataggio:", error);
             }
         }
 
@@ -415,4 +413,6 @@
         }
 
         function updateTotals() {
-            const totalEntrate = data.entrate.reduce((sum, item) => sum + item.amount,
+            const totalEntrate = data.entrate.reduce((sum, item) => sum + item.amount, 0);
+            const totalSpese = data.spese.reduce((sum, item) => sum + item.amount, 0);
+            const totalFood = data.food.flat().reduce((sum, val) => sum + parseFloat(
