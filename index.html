@@ -740,9 +740,11 @@ function collectCurrentData() {
                 speseContainer.appendChild(div);
             });
 
-                        for (let week = 1; week <= 4; week++) {
+            for (let week = 1; week <= 4; week++) {
                 const inputs = document.querySelectorAll(`.week${week}-shopping`);
-                const weekData = data.spesaAlimentare && data.spesaAlimentare[`week${week}`] ? data.spesaAlimentare[`week${week}`] : [];
+                const weekData = data.spesaAlimentare && data.spesaAlimentare[`week${week}`]
+                    ? data.spesaAlimentare[`week${week}`]
+                    : [];
                 inputs.forEach((input, index) => {
                     input.value = weekData[index] || '';
                 });
@@ -756,10 +758,12 @@ function collectCurrentData() {
                     : 300;
                 goalInput.value = target;
             }
-            updateGoalBar();
 
             updateBudgetTotals();
             updateFoodTotals();
+            updateGoalBar();
+        }
+
             function updateGoalBar() {
     const goalInput = document.getElementById('monthly-goal-input');
     if (!goalInput) return;
