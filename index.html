@@ -887,10 +887,13 @@ function collectCurrentData() {
             document.getElementById('summary-spese').textContent = formatCurrency(totalSpese);
 
             const balanceEl = document.getElementById('summary-balance');
-            balanceEl.textContent = formatCurrency(balance);
-            balanceEl.classList.toggle('balance-positive', balance >= 0);
-            balanceEl.classList.toggle('balance-negative', balance < 0);
-        }
+                balanceEl.textContent = formatCurrency(balance);
+    balanceEl.classList.toggle('balance-positive', balance >= 0);
+    balanceEl.classList.toggle('balance-negative', balance < 0);
+
+    updateGoalBar();
+}
+
 
         function updateFoodTotals() {
             const weeklyBudget = 125;
